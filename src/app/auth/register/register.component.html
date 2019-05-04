@@ -1,20 +1,23 @@
 <div class="container">
   <div class="logo">Create a new account!</div>
   <div class="register-item">
-    <form #myform="ngForm" (ngSubmit)="register(myform)" class="form form-register">
+    <form #myform="ngForm" [formGroup]="registerForm" (ngSubmit)="register(registerForm)" class="form form-register">
 
       <div class="form-field">
-            <label class="user" for="register-username"><span class="hidden">Name</span></label>
-            <input name="name" id="register-username" type="email" class="form-input" placeholder="Name" ngModel required>
+        <label class="user" for="register-username"><span class="hidden">Name</span></label>
+        <input formControlName="name" name="name" id="register-username" type="email" class="form-input"
+          placeholder="Name">
       </div>
       <div class="form-field">
         <label class="user" for="register-email"><span class="hidden">Email</span></label>
-        <input name="email" id="register-email" type="email" class="form-input" placeholder="Email" ngModel required>
+        <input formControlName="email" name="email" id="register-email" type="email" class="form-input"
+          placeholder="Email">
       </div>
 
       <div class="form-field">
         <label class="lock" for="register-password"><span class="hidden">Password</span></label>
-        <input name="password" id="register-password" type="password" class="form-input" placeholder="Password" ngModel required>
+        <input formControlName="password" name="password" id="register-password" type="password" class="form-input"
+          placeholder="Password">
       </div>
 
       <div class="form-field">

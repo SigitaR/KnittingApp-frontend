@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API_URL: 'http://ourLinuxServer:3000/api' // musu linux serveris
 };
