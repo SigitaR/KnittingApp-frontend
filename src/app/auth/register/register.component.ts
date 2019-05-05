@@ -17,13 +17,10 @@ export class RegisterComponent implements OnInit {
   register(registerForm) {
     if (registerForm.valid) {
       const user: User = registerForm.value;
-      this.authService.registerUser(user).subscribe();
-      registerForm.value = false;
-      setTimeout(() => {
-        this.router.navigate(['login']);
-      }, 2000); // siektiek timeout
+      this.authService.registerUser(user).subscribe(() => this.router.navigate(['login']));
     } else {
-      // cia koki modal galesim parodyti
+      // cia koki modal galesim parodyti, bet kolkas alert
+      alert('bad credentials');
     }
   }
 

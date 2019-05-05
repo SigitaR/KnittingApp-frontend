@@ -21,7 +21,7 @@
       </div>
 
       <div class="form-field">
-        <input type="submit" value="Register">
+        <input type="submit" [disabled]="!registerForm.valid" value="Register">
       </div>
     </form>
   </div>
