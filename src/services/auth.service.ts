@@ -19,7 +19,7 @@ export class AuthService {
     return this.http.post<User>(environment.API_URL + 'register', user, httpOptions);
   }
 
-  loginUser(loginCredentials: Observable<{email: string, password: string}>) {
+  loginUser(loginCredentials) {
     return this.http.post(environment.API_URL + 'login', loginCredentials, httpOptions);
   }
 }
