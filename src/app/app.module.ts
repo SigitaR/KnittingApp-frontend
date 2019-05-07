@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     PageNotFoundComponent,
     HomeComponent
+
   ],
   imports: [
     BrowserModule,

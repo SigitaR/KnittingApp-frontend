@@ -1,3 +1,15 @@
-<p>
-  posts works!
-</p>
+<div class="box">
+    <div class="container">
+     	<div class="row">
+	        <div *ngFor="let post of posts" class="card mb-3">
+            <img class="card-img-top" src="{{post.imageUrl}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.text}}</p>
+              <p class="card-text"><small class="text-muted">Last updated {{post.timestamp |  date:'MM/dd/yyyy h:mm:ss'}}</small></p>
+              <a href="#">Edit</a>
+            </div>
+          </div>
+		</div>		
+    </div>
+</div>
