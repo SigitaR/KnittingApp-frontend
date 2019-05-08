@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
+const httpOptions2 = {
+  headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }) // for multipart data
+};
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +18,8 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  newPost(post: Post): Observable<Post> {
-    return this.http.post<Post>(environment.API_URL + 'newPost', post, httpOptions);
+  newPost(post: any): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'newPost', post);
   }
 
   myPosts(): Observable<Post[]> {
@@ -25,5 +28,9 @@ export class PostService {
   allPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(environment.API_URL + 'getAllPosts', httpOptions);
   }
+  uploadImage(image) {
+    return this.http.post(environment.API_URL + 'uploadImage', image);
+  }
+
 
 }

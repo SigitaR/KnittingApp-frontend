@@ -12,19 +12,23 @@ export class NewpostComponent implements OnInit {
 
   constructor( private postService: PostService, private router: Router) { }
 
+  selectedFile: File = null; // faials kuri uploadinam
+
   postForm = new FormGroup({
     title: new FormControl(''),
-    text: new FormControl(''),
-    imageUrl: new FormControl('')
+    text: new FormControl('')
     });
 
-  ngOnInit() {
+   ngOnInit() {
   }
 
-  onSubmit() {
-    console.warn(this.postForm.value);
-    if (this.postForm.valid) {
-      this.postService.newPost(this.postForm.value).subscribe((result: any) => {
+  onSubmit(form) {
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    fd.append('title', form.value.title);
+    fd.append('text', form.value.text);
+    if (form.valid) {
+      this.postService.newPost(fd).subscribe((result: any) => {
         console.log(result);
         if (result.status === 201) {
             this.router.navigate(['myposts']);
@@ -35,7 +39,8 @@ export class NewpostComponent implements OnInit {
     }
   }
 
-
-
+  onFileSelected(event) {
+    this.selectedFile = event.target.files[0] as File;
+  }
 
 }
