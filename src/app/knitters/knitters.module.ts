@@ -4,6 +4,7 @@ import { PostsComponent } from './posts/posts.component';
 import { NewpostComponent } from './newpost/newpost.component';
 import { KnittersRoutingModule } from './knitters-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from '../auth.guard';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     KnittersRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [AuthGuard],
 })
 export class KnittersModule { }
 
