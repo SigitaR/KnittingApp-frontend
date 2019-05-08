@@ -21,7 +21,6 @@ export class AuthGuard implements CanActivate {
     }
   }
 
-
   public TokenNotExpired(token) {  // checks if token is expired
    const decodenToken = decode(token);
    const expiration = decodenToken.exp;

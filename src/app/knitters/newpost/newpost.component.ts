@@ -27,7 +27,7 @@ export class NewpostComponent implements OnInit {
       this.postService.newPost(this.postForm.value).subscribe((result: any) => {
         console.log(result);
         if (result.status === 201) {
-            this.router.navigate(['allposts']);
+            this.router.navigate(['myposts']);
         } else if (result.status === false) {
           alert('something went wrong');
         }

@@ -1,3 +1,16 @@
-<p>
-  home works!
-</p>
+<h1>Cia yra visu postai</h1>
+<div class="box">
+    <div class="container">
+     	<div class="row">
+	        <div *ngFor="let post of posts" class="card mb-3">
+            <img class="card-img-top" src="{{post.imageUrl}}" alt="Paveiksliukas">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.text}}</p>
+              <p class="card-text"><small class="text-muted">Last updated {{post.timestamp |  date:'MM/dd/yyyy h:mm:ss'}} by
+                 <a href="{{post.creator}}" target="_top"> {{post.creator}}</a></small></p>
+            </div>
+          </div>
+		</div>		
+    </div>
+</div>
