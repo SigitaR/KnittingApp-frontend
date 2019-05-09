@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ) { }
 
   registerUser(user: User): Observable<User> {
     return this.http.post<User>(environment.API_URL + 'register', user, httpOptions);

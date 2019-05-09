@@ -7,15 +7,17 @@ html {
 }
 
 body {
-    display: flex;
+    // display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100%;
     font-family: 'lato', sans-serif;
     color: #fff;
-    background: url(background.jpg) no-repeat center center fixed;
+    background: url(./app/images/background.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
