@@ -22,5 +22,9 @@ export class AuthService {
   loginUser(loginCredentials) {
     return this.http.post(environment.API_URL + 'login', loginCredentials, httpOptions);
   }
+  
+  logout() {
+    return this.http.post(environment.API_URL + 'logout',  httpOptions);
+  }
 
 }
