@@ -36,6 +36,7 @@ export class MainNavComponent implements OnInit {
   }
 
   logout() {
+    this.authService.logout(); // blacklist token on back end
     localStorage.setItem('token', null);
     this.store.dispatch(new AuthActions.SetToken(null));
     this.store.dispatch(new AuthActions.LogOut());

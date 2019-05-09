@@ -1,16 +1,21 @@
-<h1>Cia yra visu postai</h1>
-<div class="box">
+<h1 *ngIf="!posts" align="center">No posts :(</h1>
+<h1 *ngIf="posts" align="center">Posts by everyone</h1>
+<section class="details-card">
     <div class="container">
-     	<div class="row">
-	        <div *ngFor="let post of posts" class="card mb-3">
-            <img class="card-img-top" src="{{serverUrl + post.imageUrl}}" alt="Paveiksliukas">
-            <div class="card-body">
-              <h5 class="card-title">{{post.title}}</h5>
-              <p class="card-text">{{post.text}}</p>
-              <p class="card-text"><small class="text-muted">Last updated {{post.timestamp |  date:'MM/dd/yyyy h:mm:ss'}} by
-                 <a href="{{post.creator}}" target="_top"> {{post.creator}}</a></small></p>
+        <div class="row">
+            <div *ngFor="let post of posts" class="col-md-4">
+                <div class="card-content">
+                    <div class="card-img">
+                       <img *ngIf="!post.imageUrl" src="https://placeimg.com/380/230/tech" alt=""> <!--  default photo jei nebutu netycia -->
+                        <img *ngIf="post.imageUrl" src="{{serverUrl + post.imageUrl}}" alt="">
+                          </div>
+                    <div class="card-desc">
+                        <h3>{{post.title}}</h3>
+                        <p>{{post.text}}</p>
+                            <a  class="btn-card">Read</a>   
+                    </div>
+                </div>
             </div>
-          </div>
-		</div>		
+        </div>
     </div>
-</div>
+</section>

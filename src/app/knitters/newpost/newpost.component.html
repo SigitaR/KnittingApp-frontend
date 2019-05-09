@@ -1,4 +1,4 @@
-      <div class="container">
+      <!-- <div class="container">
         <h1>Hero Form</h1>
         <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" method="post" class="form form-login" enctype="multipart/form-data">
           <div class="form-group">
@@ -13,11 +13,37 @@
      
           <div class="form-group">
             <label for="image">Image</label>
-            <!-- <input type="file" name="image" id="image" ngModel> -->
             <input type="file" name="" (change)="onFileSelected($event)">
           </div>
      
           <button type="submit" class="btn btn-success">Submit</button>
      
         </form>
+    </div> -->
+
+
+    <div class="container">
+      <div class="logo">Add new post</div>
+      <div class="register-item">
+        <form #myform="ngForm" (ngSubmit)="onSubmit(myform)" method="post" class="form form-login" enctype="multipart/form-data" class="form form-register">
+    
+          <div class="form-field">
+            <label  for="register-username"><span class="hidden">Title</span></label>
+            <input name="title" id="post-title" type="email" class="form-input" placeholder="title" required ngModel>
+          </div>
+          <div class="form-field">
+            <label  for="register-email"><span class="hidden">Text</span></label>
+            <input name="text" id="post-text" type="email" class="form-input" placeholder="text" required ngModel>
+          </div>
+    
+          <div class="form-field">
+            <label  for="register-password"><span class="hidden">Image</span></label>
+            <input type="file" name="" (change)="onFileSelected($event)">
+          </div>
+    
+          <div class="form-field">
+            <input type="submit" [disabled]="!myform.valid" value="Create">
+          </div>
+        </form>
+      </div>
     </div>
