@@ -12,7 +12,9 @@
                     <div class="card-desc">
                         <h3>{{post.title}}</h3>
                         <p>{{post.text}}</p>
-                            <a  class="btn-card">Read</a>   
+                            <!-- <a  class="btn-card">Read</a>   -->
+                            <p class="card-text"><small class="text-muted">Last updated {{post.timestamp |  date:'MM/dd/yyyy h:mm:ss'}} by
+                                <a href="{{post.creator}}" target="_top"> {{post.creator}}</a></small></p> 
                     </div>
                 </div>
             </div>
