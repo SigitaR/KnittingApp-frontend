@@ -33,3 +33,11 @@ mat-toolbar a {
   color: white;
   text-decoration: none;
 } 
+
+.nav-buttons{
+  position: absolute;
+  right: 10px;
+}  
+.nav-buttons button {
+  margin-left: 10px;
+}  

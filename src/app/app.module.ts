@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from 'src/reducers/auth.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,13 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    StoreModule.forRoot({
+       auth: authReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 //  Retains last 25 states
+    }),
   ],
   providers: [AuthGuard,
 

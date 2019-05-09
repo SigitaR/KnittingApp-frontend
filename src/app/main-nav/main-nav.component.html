@@ -20,9 +20,16 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>KnittingApp-frontend</span>
+      <span routerLink="/home">Knitting App</span>
+      <div *ngIf="!(isHandset$ | async)" class="nav-buttons">
+        <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" routerLink="/newpost">New post</button>
+        <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="warn" routerLink="/myposts">My posts</button>
+        <button *ngIf="!(auth | async)?.isLoggedIn" mat-raised-button color="accent" routerLink="/login">Login</button>
+        <button *ngIf="(auth | async)?.isLoggedIn" mat-raised-button color="accent" (click)="logout()">Logout</button>
+      </div>
+
     </mat-toolbar>
     <!-- Add Content Here -->
-    <ng-content></ng-content>
+        <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -4,6 +4,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Routes, Route
 import { Observable } from 'rxjs';
 import decode from 'jwt-decode';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,6 +28,7 @@ export class AuthGuard implements CanActivate {
    const currentTime =  Date.now();
    const isExpired = new Date(expiration) <= new Date(currentTime); // comparing two unix dates
    console.log(isExpired);
+
    return isExpired;
   }
 
