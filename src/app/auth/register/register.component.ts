@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { User } from 'src/entities/user';
 import { Router } from '@angular/router';
@@ -12,10 +12,27 @@ import { AuthService } from 'src/services/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  public registerForm;
+  // @ViewChild('g-recaptcha-response') recaptcha: ElementRef;
+  // public registerForm;
+  // public captcha = this.elRef.nativeElement.querySelector('g-recaptcha-response');
 
+  public name;
+  public email;
+  public password;
+  public captcha;
   register(registerForm) {
+    this.captcha = document.querySelector('#g-recaptcha-response').value;
+    // console.log(this.recaptcha.nativeElement.value);
+    // console.log(document.querySelector('#g-recaptcha-response').value); // yra value nx
+    // registerForm.captcha = document.querySelector('#g-recaptcha-response').value;
     if (registerForm.valid) {
+
+      registerForm.name = this.name;
+      registerForm.email = this.email;
+      registerForm.password = this.password;
+      registerForm.captcha = this.captcha;
+      // registerForm.captcha = "123445";
+
       const user: User = registerForm.value;
       this.authService.registerUser(user).subscribe(() => this.router.navigate(['login']));
     } else {
@@ -25,14 +42,15 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder, private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService, private elRef: ElementRef) { }
 
   ngOnInit() {
-    this.registerForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      name: ['', Validators.required],
-    });
+    // this.registerForm = this.fb.group({
+    //   email: ['', [Validators.required, Validators.email]],
+    //   password: ['', Validators.required],
+    //   name: ['', Validators.required],
+    //   captcha: ['', Validators.required],
+    // });
   }
 
 }

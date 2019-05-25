@@ -1,23 +1,27 @@
 <div class="container">
   <div class="logo">Create a new account!</div>
   <div class="register-item">
-    <form #myform="ngForm" [formGroup]="registerForm" (ngSubmit)="register(registerForm)" class="form form-register">
+    <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" class="form form-register">
 
       <div class="form-field">
         <label class="user" for="register-username"><span class="hidden">Name</span></label>
-        <input formControlName="name" name="name" id="register-username" type="email" class="form-input"
-          placeholder="Name">
+        <input name="name" id="register-username" type="email" class="form-input"
+          placeholder="Name" [(ngModel)]="name" required>
       </div>
       <div class="form-field">
         <label class="user" for="register-email"><span class="hidden">Email</span></label>
-        <input formControlName="email" name="email" id="register-email" type="email" class="form-input"
-          placeholder="Email">
+        <input  name="email" id="register-email" type="email" class="form-input"
+          placeholder="Email" [(ngModel)]="email" required>
       </div>
 
       <div class="form-field">
         <label class="lock" for="register-password"><span class="hidden">Password</span></label>
-        <input formControlName="password" name="password" id="register-password" type="password" class="form-input"
-          placeholder="Password">
+        <input name="password" id="register-password" type="password" class="form-input"
+          placeholder="Password" [(ngModel)]="password" required>
+      </div>
+      <div class="form-group">
+          <div #recaptcha name="recaptcha" class="g-recaptcha" data-sitekey="6LdbY6UUAAAAAAfAXTQ8plaWQmafIbzkn3u0S59b"></div>
+          <input name="captcha" [(ngModel)]="captcha" hidden>
       </div>
 
       <div class="form-field">
@@ -26,3 +30,4 @@
     </form>
   </div>
 </div>
+
